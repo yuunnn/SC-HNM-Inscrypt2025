@@ -1,1 +1,8 @@
-# SC-HNM-Inscrypt2025
+# SC-HNM
+
+This is the Official Implementation for "SC-HNM: Filtering False Negatives for Network Service Embeddings" (Inscrypt 2025).
+
+## Abstract
+
+Identifying related Indicators of Compromise (IoCs), such as malicious IP
+addresses and associated network services (IP:Ports), is crucial for threat intelligence  but challenging due to the scale and heterogeneity of Internet scan data. We propose a novel \textbf{self-supervised contrastive learning framework} to generate meaningful embeddings for IP:Port instances by fusing multimodal features (TLS certificates, banners, web content, metadata). Addressing the critical \textbf{false negative problem} inherent in contrastive learning, especially when combined with Hard Negative Mining (HNM), we introduce \textbf{Semantic-Consistency HNM (SC-HNM)}. This technique employs a lightweight, integrated \textbf{auxiliary network} operating on \textit{early-stage} feature representations to assess semantic similarity between an anchor and potential hard negatives. If the initial similarity exceeds a threshold $\delta$, the potentially false negative is dynamically filtered out before computing the main contrastive loss, thus preserving semantic structure without requiring any labels. Our multimodal encoder utilizes attention and gating mechanisms for effective feature fusion. We train the model entirely from scratch on 8 million unlabeled scan records. Experiments show our approach yields highly competitive IoC retrieval performance, significantly outperforming zero-shot baselines (including large pre-trained models like BERT, RoBERTa, BGE-M3, E5). Ablation studies confirm the benefits of multimodality, HNM, and our SC-HNM filter. Furthermore, the resulting model is compact (~27 million parameters) and efficient, enabling practical deployment for large-scale IoC similarity search and threat discovery.
